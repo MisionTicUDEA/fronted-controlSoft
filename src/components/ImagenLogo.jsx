@@ -6,3 +6,4 @@ const ImagenLogo = () => {
 };
 
 export default ImagenLogo;
+

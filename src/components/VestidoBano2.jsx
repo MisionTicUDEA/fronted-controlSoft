@@ -1,9 +1,8 @@
-function VestidoBano2({imagen,nombreVestido}) {
-    return (
-      <div className='contenedorImagen'>
-        <img src={imagen} alt={nombreVestido} width="60%" height="80%"/>
-      </div>
-    )
-  }
+import React from 'react';
+import Logo from 'media/Vestido_bano4.jpg';
 
-  export default VestidoBano2;
+const VestidoBano2 = () => {
+  return <img width="50%" height="70%" src={Logo} alt='Workflow' />;
+};
+
+export default VestidoBano2;
