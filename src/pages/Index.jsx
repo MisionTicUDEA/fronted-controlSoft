@@ -24,8 +24,6 @@ const Index = () => {
         </div>
         <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
           <div className="a">
-            {/*               <img src={vestidobano} alt='Vestido de Baño' width="50%" height="30%">
-                            </img>   */}
                     <VestidoBano 
                         nombreVestido='Vestido de Baño' 
                         imagen={vestidobano}/>
