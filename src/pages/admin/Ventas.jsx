@@ -253,7 +253,7 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
           onClick={() => agregarNuevoProducto()}
           className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white'
         >
-          Agregar Vehículo
+          Agregar Producto
         </button>
       </div>
       <table className='tabla'>
