@@ -1,7 +1,9 @@
 import Collage_Vestido from '../media/Collage_Vestido.JPG'
 import VestidoBano1 from '../components/VestidosBano1';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Que_es_page = () => {
+    const { loginWithRedirect } = useAuth0();
     return (
 <div> 
         <section>
@@ -9,13 +11,10 @@ const Que_es_page = () => {
         <div className='flex flex-col items-center justify-center py-4 px-4 sm:px-6 lg:px-8'>
             <div className="flex flex-wrap">
                 <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
-                                <VestidoBano1 
-                                    nombreVestido='Collage Vestido' 
-                                    imagen={Collage_Vestido}/>
-
-                </div>
-            
-            
+                    <VestidoBano1 
+                        nombreVestido='Collage Vestido' 
+                        imagen={Collage_Vestido}/>
+                </div>           
                 <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
                     <p class="text-center ">
                     <div className="font-bold text-xl mb-2">
@@ -28,11 +27,19 @@ const Que_es_page = () => {
                             red digitalizada que incluye terminales de pago que cuentan con funciones adicionales como escáner 
                             y terminales de pago.
                         </p>
+                        <p>
+                        <div>
+                            <button
+                                    onClick={() => loginWithRedirect()}
+                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                Iniciar Sesión
+                            </button>
+                        </div>
+                        </p>
                     </p>
                 </div>
             </div>
         </div>
-        
     </main>
         </section>
 </div>    
