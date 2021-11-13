@@ -6,27 +6,33 @@ const Que_es_page = () => {
 <div> 
         <section>
         <main>
-        <div className="grid-container">
-            <div className="grid-item">
-                <div className="a">
-                        <VestidoBano1 
-                        nombreVestido='Collage Vestido' 
-                        imagen={Collage_Vestido}/>
-                </div>  
-            </div>
-            <div className="grid-item">
-                <div className="a">
-                    <h1>Que es ControlSoft.</h1>
-                        <p><h5>El sistema automatizado de ventas es un lugar donde un cliente paga por un artículo o un servicio 
+        <div className='flex flex-col items-center justify-center py-4 px-4 sm:px-6 lg:px-8'>
+            <div className="flex flex-wrap">
+                <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
+                                <VestidoBano1 
+                                    nombreVestido='Collage Vestido' 
+                                    imagen={Collage_Vestido}/>
+
+                </div>
+            
+            
+                <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
+                    <p class="text-center ">
+                    <div className="font-bold text-xl mb-2">
+                        <p>Que es ControlSoft.</p>
+                    </div>
+                        <p className="text-gray-700 text-base">
+                        El sistema automatizado de ventas es un lugar donde un cliente paga por un artículo o un servicio 
                             separado ofrecido por una compañía. Entonces, básicamente, es el sistema que permite a las partes 
                             proceder con la transacción entre un cliente y una compañía. Además, este término pertenece a una 
                             red digitalizada que incluye terminales de pago que cuentan con funciones adicionales como escáner 
-                            y terminales de pago</h5>
+                            y terminales de pago.
+                        </p>
                     </p>
-                    <button className="button"><span>Iniciar Sesión </span></button> 
                 </div>
             </div>
         </div>
+        
     </main>
         </section>
 </div>    
