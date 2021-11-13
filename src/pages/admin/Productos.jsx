@@ -46,7 +46,7 @@ const Productos = () => {
 
   useEffect(() => {
     if (mostrarTabla) {
-      setTextoBoton('Crear Nuevo Vehículo');
+      setTextoBoton('Crear Nuevo Producto');
       setColorBoton('indigo');
     } else {
       setTextoBoton('Mostrar Todos los productos');
