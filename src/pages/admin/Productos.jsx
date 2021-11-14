@@ -44,6 +44,7 @@ const Productos = () => {
     }
   }, [mostrarTabla]);
 
+
   useEffect(() => {
     if (mostrarTabla) {
       setTextoBoton('Crear Nuevo Producto');
@@ -175,7 +176,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
       },
       (response) => {
         console.log(response.data);
-        toast.success('Vehículo modificado con éxito');
+        toast.success('Producto modificado con éxito');
         setEdit(false);
         setEjecutarConsulta(true);
       },
@@ -266,13 +267,13 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
               </>
             ) : (
               <>
-                <Tooltip title='Editar Vehículo' arrow>
+                <Tooltip title='Editar Producto' arrow>
                   <i
                     onClick={() => setEdit(!edit)}
                     className='fas fa-pencil-alt text-yellow-700 hover:text-yellow-500'
                   />
                 </Tooltip>
-                <Tooltip title='Eliminar Vehículo' arrow>
+                <Tooltip title='Eliminar Producto' arrow>
                   <i
                     onClick={() => setOpenDialog(true)}
                     className='fas fa-trash text-red-700 hover:text-red-500'

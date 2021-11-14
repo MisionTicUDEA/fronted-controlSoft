@@ -33,7 +33,7 @@ const Test = () => {
 
     const informacionConsolidada = {
       valor: nuevaVenta.cantidadVenta,
-      producto: productos.filter((el) => el._id === nuevaVenta.producto)[0],
+      producto: productos.filter((el) => el._id === nuevaVenta.productos)[0],
       vendedor: usuarios.filter((el) => el._id === nuevaVenta.vendedor)[0],
     };
     console.log(informacionConsolidada);
