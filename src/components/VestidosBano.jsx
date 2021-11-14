@@ -1,7 +1,7 @@
 function VestidoBano({imagen,nombreVestido}) {
     return (
       <div className='contenedorImagen'>
-        <img src={imagen} alt={nombreVestido} width="55%" height="55%"/>
+        <img src={imagen} alt={nombreVestido} width="100%" height="100%"/>
       </div>
     )
   }

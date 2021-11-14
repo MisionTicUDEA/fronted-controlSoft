@@ -1,6 +1,6 @@
 import { useDarkMode } from 'context/darkMode';
 import React from 'react';
-import vestidobano from '../media/Vestido_bano.jpg';
+import vestidobano from '../media/Vestido_bano1.jpg';
 import VestidoBano from '../components/VestidosBano';
 
 
@@ -10,27 +10,25 @@ const Index = () => {
     <div>
       <div className={`flex h-full bg-gray-${darkMode ? '900' : '50'}`}>   
     <main>
-      <div className='flex flex-col items-center justify-center py-4 px-4 sm:px-6 lg:px-8'>
-        <div className="flex flex-wrap">
-          <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
+    <div className='flex  flex-col  p-9'>
+      <div class="grid grid-cols-1 md:grid-cols-2">
             <p class="text-center ">
-              <div className="font-bold text-xl mb-2">
+              <div className="font-bold text-4xl mb-8 p-6">
                 <p>Toma el control y organiza tus ventas</p>
               </div>
-                <p className="text-gray-700 text-base">
-                  Es una marca con un estilo joven y fresco, solo con la línea de ropa interior para mujer.
+                <p className="text-gray-700 text-1xl">
+                  Es una marca con un estilo joven y fresco, 
+                  solo con la línea de ropa interior para mujer.
                 </p>
-            </p>
-        </div>
-        <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
-          <div className="a">
+            </p>   
+            <div>
                     <VestidoBano 
                         nombreVestido='Vestido de Baño' 
                         imagen={vestidobano}/>
-            </div>
-          </div>
-        </div>
+                        </div>
+              
       </div>
+    </div>    
     </main>
     </div>
 </div>   
