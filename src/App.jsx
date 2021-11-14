@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PrivateLayout from 'layouts/PrivateLayout';
 import PublicLayout from 'layouts/PublicLayout';
 import Index from 'pages/Index';
+import Que_es_page from 'pages/que_es'
 import Admin from 'pages/admin/Index';
 import Productos from 'pages/admin/Productos';
 import Login from 'pages/auth/Login';
@@ -15,6 +16,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import Usuarios from 'pages/admin/Usuarios';
 import { UserContext } from 'context/userContext';
 import PrivateRoute from 'components/PrivateRoute';
+
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -75,6 +77,9 @@ function App() {
                   <PublicLayout>
                     <Route path='/'>
                       <Index />
+                    </Route>                  
+                    <Route path='/que_es'>
+                      <Que_es_page />
                     </Route>
                   </PublicLayout>
                 </Route>

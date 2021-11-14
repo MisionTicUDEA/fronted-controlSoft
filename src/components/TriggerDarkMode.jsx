@@ -9,7 +9,7 @@ const TriggerDarkMode = () => {
         setDarkMode(!darkMode);
       }}
     >
-      {darkMode ? 'Desactivar ' : 'Activar'} modo dark
+      {darkMode ? 'Desactivar ' : 'Activar'} Modo Dark
     </button>
   );
 };
