@@ -24,10 +24,16 @@ const Usuarios = () => {
 
   return (
     <div>
-      <div>admin usuarios</div>
+          <div className='flex  flex-col  p-2'>
+        <div className="font-bold text-3xl mb-4">
+          Administrador de usuarios
+        </div>
+      </div>
+      <div className="font-bold text-1xl mb-4">
       <PrivateComponent roleList={['admin']}>
-        <button className='bg-red-400'>Hola RBAC</button>
+        <button className='bg-red-300'>Hola RBAC</button>
       </PrivateComponent>
+      </div>
       <table className='tabla'>
         <thead>
           <tr>
