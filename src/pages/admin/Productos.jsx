@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
-import { obtenerProductos, crearProductos, editarProductos, eliminarProductos } from 'utils/api';
+import { obtenerProductos, crearProducto, editarProducto, eliminarProducto } from 'utils/api';
 import ReactLoading from 'react-loading';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateComponent from 'components/PrivateComponent';
@@ -10,7 +10,7 @@ import PrivateComponent from 'components/PrivateComponent';
 const Productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
   const [productos, setProductos] = useState([]);
-  const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
+  const [textoBoton, setTextoBoton] = useState('Crear Nuevo Bikini');
   const [colorBoton, setColorBoton] = useState('indigo');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ const Productos = () => {
   }, [ejecutarConsulta]);
 
   useEffect(() => {
-    //obtener lista de productos desde el backend
+    //obtener lista de bikinis desde el backend
     if (mostrarTabla) {
       setEjecutarConsulta(true);
     }
@@ -46,10 +46,10 @@ const Productos = () => {
 
   useEffect(() => {
     if (mostrarTabla) {
-      setTextoBoton('Crear Nuevo Producto');
+      setTextoBoton('Crear Nuevo Bikini');
       setColorBoton('indigo');
     } else {
-      setTextoBoton('Mostrar Todos los productos');
+      setTextoBoton('Mostrar Todos los bikinis');
       setColorBoton('green');
     }
   }, [mostrarTabla]);
@@ -57,7 +57,7 @@ const Productos = () => {
     <div className='flex h-full w-full flex-col items-center justify-start p-8'>
       <div className='flex flex-col w-full'>
         <h2 className='text-3xl font-extrabold text-gray-900'>
-          Página de administración de productos
+          Página de administración de bikinis
         </h2>
         <button
           onClick={() => {
@@ -107,7 +107,7 @@ const TablaProductos = ({ loading, listaProductos, setEjecutarConsulta }) => {
         placeholder='Buscar'
         className='border-2 border-gray-700 px-3 py-1 self-start rounded-md focus:outline-none focus:border-indigo-500'
       />
-      <h2 className='text-2xl font-extrabold text-gray-800'>Todos los productos</h2>
+      <h2 className='text-2xl font-extrabold text-gray-800'>Todos los bikinis</h2>
       <div className='hidden md:flex w-full'>
         {loading ? (
           <ReactLoading type='cylon' color='#abc123' height={667} width={375} />
@@ -116,9 +116,9 @@ const TablaProductos = ({ loading, listaProductos, setEjecutarConsulta }) => {
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Nombre del producto</th>
-                <th>Tipo de producto</th>
-                <th>Talla del producto</th>
+                <th>Nombre del bikini</th>
+                <th>Talla del bikini</th>
+                <th>Modelo del bikini</th>
                 <PrivateComponent roleList={['admin']}>
                   <th>Acciones</th>
                 </PrivateComponent>
@@ -143,8 +143,8 @@ const TablaProductos = ({ loading, listaProductos, setEjecutarConsulta }) => {
           return (
             <div className='bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
               <span>{el.name}</span>
-              <span>{el.kind}</span>
-              <span>{el.size}</span>
+              <span>{el.brand}</span>
+              <span>{el.model}</span>
             </div>
           );
         })}
@@ -159,44 +159,44 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
     _id: producto._id,
     name: producto.name,
-    kind: producto.kind,
-    size: producto.size,
+    brand: producto.brand,
+    model: producto.model,
   });
 
-  const actualizarProductos = async () => {
+  const actualizarProducto = async () => {
     //enviar la info al backend
 
-    await editarProductos(
+    await editarProducto(
       producto._id,
       {
         name: infoNuevoProducto.name,
-        kind: infoNuevoProducto.kind,
-        size: infoNuevoProducto.size,
+        brand: infoNuevoProducto.brand,
+        model: infoNuevoProducto.model,
       },
       (response) => {
         console.log(response.data);
-        toast.success('Vehículo modificado con éxito');
+        toast.success('Bikini modificado con éxito');
         setEdit(false);
         setEjecutarConsulta(true);
       },
       (error) => {
-        toast.error('Error modificando el producto');
+        toast.error('Error modificando el bikini');
         console.error(error);
       }
     );
   };
 
-  const deleteProduct = async () => {
-    await eliminarProductos(
+  const deleteProducto = async () => {
+    await eliminarProducto(
       producto._id,
       (response) => {
         console.log(response.data);
-        toast.success('producto eliminado con éxito');
+        toast.success('bikini eliminado con éxito');
         setEjecutarConsulta(true);
       },
       (error) => {
         console.error(error);
-        toast.error('Error eliminando el producto');
+        toast.error('Error eliminando el bikini');
       }
     );
 
@@ -220,9 +220,9 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
             <input
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
-              value={infoNuevoProducto.kind}
+              value={infoNuevoProducto.brand}
               onChange={(e) =>
-                setInfoNuevoProducto({ ...infoNuevoProducto, kind: e.target.value })
+                setInfoNuevoProducto({ ...infoNuevoProducto, brand: e.target.value })
               }
             />
           </td>
@@ -230,9 +230,9 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
             <input
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
-              value={infoNuevoProducto.size}
+              value={infoNuevoProducto.model}
               onChange={(e) =>
-                setInfoNuevoProducto({ ...infoNuevoProducto, size: e.target.value })
+                setInfoNuevoProducto({ ...infoNuevoProducto, model: e.target.value })
               }
             />
           </td>
@@ -241,8 +241,8 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
         <>
           <td>{producto._id.slice(20)}</td>
           <td>{producto.name}</td>
-          <td>{producto.kind}</td>
-          <td>{producto.size}</td>
+          <td>{producto.brand}</td>
+          <td>{producto.model}</td>
         </>
       )}
 
@@ -253,7 +253,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
               <>
                 <Tooltip title='Confirmar Edición' arrow>
                   <i
-                    onClick={() => actualizarProductos()}
+                    onClick={() => actualizarProducto()}
                     className='fas fa-check text-green-700 hover:text-green-500'
                   />
                 </Tooltip>
@@ -266,13 +266,13 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
               </>
             ) : (
               <>
-                <Tooltip title='Editar Vehículo' arrow>
+                <Tooltip title='Editar Bikini' arrow>
                   <i
                     onClick={() => setEdit(!edit)}
                     className='fas fa-pencil-alt text-yellow-700 hover:text-yellow-500'
                   />
                 </Tooltip>
-                <Tooltip title='Eliminar Vehículo' arrow>
+                <Tooltip title='Eliminar Bikini' arrow>
                   <i
                     onClick={() => setOpenDialog(true)}
                     className='fas fa-trash text-red-700 hover:text-red-500'
@@ -285,11 +285,11 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           <Dialog open={openDialog}>
             <div className='p-8 flex flex-col'>
               <h1 className='text-gray-900 text-2xl font-bold'>
-                ¿Está seguro de querer eliminar el producto?
+                ¿Está seguro de querer eliminar el bikini?
               </h1>
               <div className='flex w-full items-center justify-center my-4'>
                 <button
-                  onClick={() => deleteProduct()}
+                  onClick={() => deleteProducto()}
                   className='mx-2 px-4 py-2 bg-green-500 text-white hover:bg-green-700 rounded-md shadow-md'
                 >
                   Sí
@@ -321,19 +321,23 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
       nuevoProducto[key] = value;
     });
 
-    await crearProductos(
+
+
+
+    await crearProducto(
       {
         name: nuevoProducto.name,
-        kind: nuevoProducto.kind,
-        size: nuevoProducto.size,
+        brand: nuevoProducto.brand,
+        model: nuevoProducto.model,
       },
+
       (response) => {
         console.log(response.data);
-        toast.success('Producto agregado con éxito');
+        toast.success('Bikini agregado con éxito');
       },
       (error) => {
         console.error(error);
-        toast.error('Error creando un producto');
+        toast.error('Error creando un bikini');
       }
     );
 
@@ -341,18 +345,18 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
     //   method: 'POST',
     //   url: 'http://localhost:5000/productos/nuevo/',
     //   headers: { 'Content-Type': 'application/json' },
-    //   data: { name: nuevoProducto.name, kind: nuevoProducto.kind, size: nuevoProducto.size },
+    //   data: { name: nuevoProducto.name, brand: nuevoProducto.brand, model: nuevoProducto.model },
     // };
 
     // await axios
     //   .request(options)
     //   .then(function (response) {
     //     console.log(response.data);
-    //     toast.success('Vehículo agregado con éxito');
+    //     toast.success('Bikini agregado con éxito');
     //   })
     //   .catch(function (error) {
     //     console.error(error);
-    //     toast.error('Error creando un producto');
+    //     toast.error('Error creando un bikini');
     //   });
 
     setMostrarTabla(true);
@@ -360,54 +364,76 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <h2 className='text-2xl font-extrabold text-gray-800'>Crear nuevo producto</h2>
+      <h2 className='text-2xl font-extrabold text-gray-800'>Crear nuevo bikini</h2>
       <form ref={form} onSubmit={submitForm} className='flex flex-col'>
         <label className='flex flex-col' htmlFor='nombre'>
-          Nombre del producto
+          Nombre del bikini
           <input
             name='name'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='text'
-            placeholder='Vestidos Summer'
+            placeholder='Bikini'
             required
           />
         </label>
-        <label className='flex flex-col' htmlFor='tipo'>
-          Tipo del producto
+        <label className='flex flex-col' htmlFor='talla'>
+          Talla del bikini
           <select
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            name='kind'
+            name='brand'
             required
             defaultValue={0}
           >
             <option disabled value={0}>
               Seleccione una opción
             </option>
-            <option>Soleador</option>
-            <option>Dos piezas</option>
-            <option>Enterizos</option>
-            <option>Suit Completos</option>
-          </select>
-        </label>
-        <label className='flex flex-col' htmlFor='talla'>
-          Talla del producto
-          <select
-            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            name='kind'
-            required
-            defaultValue={0}
-          >
-            <option disabled value={0}>
-              Seleccione una talla
-            </option>
             <option>XS</option>
             <option>S</option>
             <option>M</option>
             <option>L</option>
             <option>XL</option>
-            <option>XXL</option>
           </select>
         </label>
+
+        <label className='flex flex-col' htmlFor='modelo'>
+          Talla del bikini
+          <select
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            name='model'
+            required
+            defaultValue={0}
+          >
+            <option disabled value={0}>
+              Seleccione una opción
+            </option>
+            <option>Enrizo</option>
+            <option>Dos piezas</option>
+            <option>Trikini</option>
+            <option>Enterizo Manga Larga</option>
+            <option>BronceadorL</option>
+          </select>
+        </label>
+
+
+        {/* <label className='flex flex-col' htmlFor='modelo'>
+          Modelo del bikini
+
+
+
+
+
+
+          
+          <input
+            name='model'
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='number'
+            min={1992}
+            max={2022}
+            placeholder='escoja un opcion'
+            required
+          />
+        </label> */}
 
         <button
           type='submit'

@@ -18,7 +18,7 @@ export const obtenerProductos = async (successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const crearProductos = async (data, successCallback, errorCallback) => {
+export const crearProducto = async (data, successCallback, errorCallback) => {
   const options = {
     method: 'POST',
     url: `${baseURL}/productos/`,
@@ -28,7 +28,7 @@ export const crearProductos = async (data, successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const editarProductos = async (id, data, successCallback, errorCallback) => {
+export const editarProducto = async (id, data, successCallback, errorCallback) => {
   const options = {
     method: 'PATCH',
     url: `${baseURL}/productos/${id}/`,
@@ -38,7 +38,7 @@ export const editarProductos = async (id, data, successCallback, errorCallback) 
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const eliminarProductos = async (id, successCallback, errorCallback) => {
+export const eliminarProducto = async (id, successCallback, errorCallback) => {
   const options = {
     method: 'DELETE',
     url: `${baseURL}/productos/${id}/`,
