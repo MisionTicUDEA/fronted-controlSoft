@@ -29,3 +29,35 @@
 .tabla tr:hover {
   background-color: #ddd;
 }
+
+#testimonial {
+  background: #f1f1f1;
+  padding: 20px 0 20px 0;
+  text-align:center;
+  margin-top: 5px;
+}
+
+
+.grid-containeri {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: auto auto auto;
+  padding: 50px;
+}
+
+.grid-container1 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+  padding: 10px;
+}
+
+div.a {
+  text-align: center;
+}
+div.r {
+  text-align: right;
+}
+div.l {
+  text-align: left;
+}
