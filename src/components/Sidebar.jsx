@@ -9,7 +9,7 @@ const Sidebar = () => {
   const { user, logout } = useAuth0();
 
   const cerrarSesion = () => {
-    logout({ returnTo: 'https://frozen-castle-22977.herokuapp.com/admin' });
+    logout({ returnTo: 'http://localhost:3000/admin' });
     localStorage.setItem('token', null);
   };
 
