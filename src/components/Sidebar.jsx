@@ -9,7 +9,8 @@ const Sidebar = () => {
   const { user, logout } = useAuth0();
 
   const cerrarSesion = () => {
-    logout({ returnTo: 'http://localhost:3000/admin' });
+    //logout({ returnTo: 'http://localhost:3000/admin' });
+    logout({ returnTo: 'https://blooming-falls-56847.herokuapp.com/admin' });
     localStorage.setItem('token', null);
   };
 
