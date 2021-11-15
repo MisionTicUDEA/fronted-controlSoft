@@ -263,10 +263,10 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
           <tr>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Marca</th>
+            <th>Talla</th>
             <th>Modelo</th>
-            <th>Valor Unit</th>
             <th>Cantidad</th>
+            <th>Valor</th>
             <th>Total</th>
             <th>Eliminar</th>
             <th className='hidden'>Input</th>
