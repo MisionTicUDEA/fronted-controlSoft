@@ -9,21 +9,20 @@ const Sidebar = () => {
   const { user, logout } = useAuth0();
 
   const cerrarSesion = () => {
-    logout({ returnTo: 'https://frozen-castle-22977.herokuapp.com/admin' });
+    //logout({ returnTo: 'http://localhost:3000/admin' });
+    logout({ returnTo: 'https://blooming-falls-56847.herokuapp.com/admin' });
     localStorage.setItem('token', null);
   };
 
   return (
     <nav className='hidden lg:flex lg:w-72 border border-gray-300 h-full flex-col bg-blue-300 p-4 sidebar'>
-      <Link to='/admin'>
-        <ImagenLogo />
-      </Link>
+  
         <p class="text-center ">
           <div className="font-bold text-xl mb-2">
-            Bienvenido
+            Administración
           </div>
         </p>
-      <div className='my-6'>
+      <div className='my-50'>
         <Ruta icono='fas fa-user' ruta='/admin/perfil' nombre='Perfil' usuario={user} />
         <PrivateComponent roleList={['admin']}>
           <Ruta icono='fas fa-swimmer' ruta='/admin/productos' nombre='Productos' />
@@ -34,6 +33,14 @@ const Sidebar = () => {
         <PrivateComponent roleList={['admin']}>
           <Ruta icono='fas fa-users' ruta='/admin/usuarios' nombre='Usuarios' />
         </PrivateComponent>
+        </div >
+    
+      <div className='my-5'>
+      <Link to='/admin'>
+        <ImagenLogo />
+      </Link>
+
+
       </div>
       <button onClick={() => cerrarSesion()}className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-gray-800 hover:border-transparent rounded">Cerrar Sesión</button>
     </nav>

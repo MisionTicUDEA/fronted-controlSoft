@@ -29,7 +29,8 @@ function App() {
     <Auth0Provider
       domain='misiontic-ventas-ciclo-tres.us.auth0.com'
       clientId='oY4FjKTk7NxxLdz71BdrrbDeJa4LQPKV'
-      redirectUri='https://frozen-castle-22977.herokuapp.com/admin'
+     // redirectUri='http://localhost:3000/admin'
+      redirectUri='https://blooming-falls-56847.herokuapp.com/admin'
       audience='api-autenticacion-ventas-mintic'
     >
       <div className='App'>

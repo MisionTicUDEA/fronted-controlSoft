@@ -31,7 +31,7 @@ const Usuarios = () => {
       </div>
       <div className="font-bold text-1xl mb-4">
       <PrivateComponent roleList={['admin']}>
-        <button className='bg-red-300'>Hola RBAC</button>
+        <button className='bg-green-300'>Debes Autorizar a los usuarios en el primero login, cambiando el estado a "Autorizado"</button>
       </PrivateComponent>
       </div>
       <table className='tabla'>
