@@ -254,7 +254,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
                 <Tooltip title='Confirmar Edición' arrow>
                   <i
                     onClick={() => actualizarProducto()}
-                    className='fas fa-check text-green-700 hover:text-green-500'
+                    className='fas fa-check text-blue-700 hover:text-blue-500'
                   />
                 </Tooltip>
                 <Tooltip title='Cancelar edición' arrow>
@@ -290,7 +290,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
               <div className='flex w-full items-center justify-center my-4'>
                 <button
                   onClick={() => deleteProducto()}
-                  className='mx-2 px-4 py-2 bg-green-500 text-white hover:bg-green-700 rounded-md shadow-md'
+                  className='mx-2 px-4 py-2 bg-blue-500 text-white hover:bg-blue-700 rounded-md shadow-md'
                 >
                   Sí
                 </button>
@@ -437,7 +437,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
         <button
           type='submit'
-          className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white'
+          className='col-span-2 bg-blue-400 p-2 rounded-full shadow-md hover:bg-blue-600 text-white'
         >
           Guardar producto
         </button>
