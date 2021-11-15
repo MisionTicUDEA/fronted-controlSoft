@@ -301,7 +301,7 @@ const FilaProducto = ({ veh, index, eliminarProducto, modificarProducto }) => {
       <td>{producto.name}</td>
       <td>{producto.brand}</td>
       <td>{producto.model}</td>
-      <td>{producto.valor}</td>
+     {/* <td>{producto.valor}</td> */}
       <td>
         <label htmlFor={`valor_${index}`}>
           <input
