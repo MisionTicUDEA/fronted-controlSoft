@@ -245,7 +245,7 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
                 <option
                   key={nanoid()}
                   value={el._id}
-                >{`${el.name} ${el.brand} ${el.model}`}</option>
+                >{`${el.name} ${el.brand} ${el.model} ${el.valor}`}</option>
               );
             })}
           </select>
@@ -265,8 +265,8 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
             <th>Nombre</th>
             <th>Marca</th>
             <th>Modelo</th>
+            <th>Valor Unit</th>
             <th>Cantidad</th>
-            <th>Valor Unitario</th>
             <th>Total</th>
             <th>Eliminar</th>
             <th className='hidden'>Input</th>
@@ -301,6 +301,7 @@ const FilaProducto = ({ veh, index, eliminarProducto, modificarProducto }) => {
       <td>{producto.name}</td>
       <td>{producto.brand}</td>
       <td>{producto.model}</td>
+      <td>{producto.valor}</td>
       <td>
         <label htmlFor={`valor_${index}`}>
           <input

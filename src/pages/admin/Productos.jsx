@@ -119,6 +119,7 @@ const TablaProductos = ({ loading, listaProductos, setEjecutarConsulta }) => {
                 <th>Nombre del bikini</th>
                 <th>Talla del bikini</th>
                 <th>Modelo del bikini</th>
+                <th>valor</th>
                 <PrivateComponent roleList={['admin']}>
                   <th>Acciones</th>
                 </PrivateComponent>
@@ -145,6 +146,7 @@ const TablaProductos = ({ loading, listaProductos, setEjecutarConsulta }) => {
               <span>{el.name}</span>
               <span>{el.brand}</span>
               <span>{el.model}</span>
+              <span>{el.valor}</span>
             </div>
           );
         })}
@@ -161,6 +163,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     name: producto.name,
     brand: producto.brand,
     model: producto.model,
+    valor: producto.valor,
   });
 
   const actualizarProducto = async () => {
@@ -172,6 +175,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
         name: infoNuevoProducto.name,
         brand: infoNuevoProducto.brand,
         model: infoNuevoProducto.model,
+        valor: infoNuevoProducto.valor,
       },
       (response) => {
         console.log(response.data);
@@ -236,6 +240,19 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
               }
             />
           </td>
+
+
+          <td>
+            <input
+              className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+              type='number'
+              value={infoNuevoProducto.valor}
+              onChange={(e) =>
+                setInfoNuevoProducto({ ...infoNuevoProducto, valor: e.target.value })
+              }
+            />
+          </td>
+
         </>
       ) : (
         <>
@@ -243,6 +260,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           <td>{producto.name}</td>
           <td>{producto.brand}</td>
           <td>{producto.model}</td>
+          <td>{producto.valor}</td>
         </>
       )}
 
@@ -329,6 +347,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
         name: nuevoProducto.name,
         brand: nuevoProducto.brand,
         model: nuevoProducto.model,
+        valor: nuevoProducto.valor,
       },
 
       (response) => {
@@ -345,7 +364,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
     //   method: 'POST',
     //   url: 'http://localhost:5000/productos/nuevo/',
     //   headers: { 'Content-Type': 'application/json' },
-    //   data: { name: nuevoProducto.name, brand: nuevoProducto.brand, model: nuevoProducto.model },
+    //   data: { name: nuevoProducto.name, brand: nuevoProducto.brand, valor: nuevoProducto.valor },
     // };
 
     // await axios
@@ -366,6 +385,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
     <div className='flex flex-col items-center justify-center'>
       <h2 className='text-2xl font-extrabold text-gray-800'>Crear nuevo bikini</h2>
       <form ref={form} onSubmit={submitForm} className='flex flex-col'>
+
         <label className='flex flex-col' htmlFor='nombre'>
           Nombre del bikini
           <input
@@ -376,6 +396,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
             required
           />
         </label>
+
         <label className='flex flex-col' htmlFor='talla'>
           Talla del bikini
           <select
@@ -412,6 +433,17 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
             <option>Enterizo Manga Larga</option>
             <option>BronceadorL</option>
           </select>
+        </label>
+
+        <label className='flex flex-col' htmlFor='valor'>
+          Nombre del bikini
+          <input
+            name='valor'
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='number'
+            placeholder='valor'
+            required
+          />
         </label>
 
 
