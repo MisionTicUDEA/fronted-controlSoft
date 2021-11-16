@@ -10,7 +10,7 @@ const Sidebar = () => {
 
   const cerrarSesion = () => {
     //logout({ returnTo: 'http://localhost:3000/admin' });
-    logout({ returnTo: 'https://blooming-falls-56847.herokuapp.com/admin' });
+    logout({ returnTo: 'https://controlsoft.herokuapp.com/admin' });
     localStorage.setItem('token', null);
   };
 
