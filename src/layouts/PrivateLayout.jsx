@@ -39,7 +39,7 @@ const PrivateLayout = ({ children }) => {
         (err) => {
           console.log('err', err);
           setLoadingUserInformation(false);
-          logout({ returnTo: 'https://controlsoft.herokuapp.com/admin' });
+          logout({ returnTo: 'https://blooming-falls-56847.herokuapp.com/admin' });
           //logout({ returnTo: 'http://localhost:3000/admin' });
         }
       );
